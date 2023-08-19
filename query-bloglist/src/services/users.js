@@ -1,14 +1,13 @@
 import axios from 'axios'
-const baseUrl = '/api/blogs'
-
-let token = null
-
-const setToken = newToken => {
-  token = `Bearer ${newToken}`
-}
+const baseUrl = '/api/users'
 
 const getAll = async () => {
   const response = await axios.get(baseUrl)
+  return response.data
+}
+
+const get = async () => {
+  const response = await axios.get(`${baseUrl}/${id}`)
   return response.data
 }
 
@@ -33,5 +32,4 @@ const remove = async (id) => {
   return response.data
 }
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default { getAll, setToken, create, update, remove }
+export default { getAll, get, update, create, remove }

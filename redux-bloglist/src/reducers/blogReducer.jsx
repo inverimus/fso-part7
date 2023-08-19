@@ -88,4 +88,17 @@ export const removeBlog = (blog) => {
   }
 }
 
+export const commentBlog = (blog, comment) => {
+  return async dispatch => {
+    try {
+      const body = { comment: comment }
+      console.log(body)
+      const updatedBlog = await blogService.comment(blog.id, body)
+      dispatch(updateBlog(updatedBlog))
+    } catch (e) {
+      console.log(e)
+    }
+  }
+}
+
 export default blogSlice.reducer

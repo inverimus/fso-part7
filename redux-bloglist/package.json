@@ -1,5 +1,5 @@
 {
-  "name": "bloglist-front",
+  "name": "bloglist-redux",
   "private": true,
   "version": "0.0.0",
   "type": "module",
