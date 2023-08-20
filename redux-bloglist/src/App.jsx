@@ -36,7 +36,6 @@ const App = () => {
     return (
       <div>
         <Notification />
-        <h2>Log in to application</h2>
         <LoginForm />
       </div>
     )

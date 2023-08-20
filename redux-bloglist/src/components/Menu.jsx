@@ -1,5 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { AppBar, Toolbar, Button, Box } from '@mui/material'
+
 import { clearUser } from '../reducers/loginReducer'
 
 const Menu = () => {
@@ -39,12 +41,14 @@ const Menu = () => {
   }
 
   return(
-    <div style={padding}>
-      <Link style={padding} to='/'>blogs</Link>
-      <Link style={padding} to='/users'>users</Link>
-      <div style={inline}>{`${user.name} logged in`}</div>
-      <button style={buttonStyle} onClick={handleLogout}>logout</button>
-    </div>
+    <AppBar position="static">
+      <Toolbar>
+        <Button color="inherit" component={Link} to="/">blogs</Button>
+        <Button color="inherit" component={Link} to="/users">users</Button>
+        <Button color="inherit" onClick={handleLogout}>logout</Button>
+        <Box pl={4}>{user.name}</Box>
+      </Toolbar>
+    </AppBar>
   )
 }
 

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { TextField, Box, Button } from '@mui/material'
 
 import { createBlog } from '../reducers/blogReducer'
 
@@ -25,19 +26,10 @@ const BlogForm = ({ setVisible }) => {
     <div>
       <h2>create new</h2>
       <form onSubmit={handleCreateBlog}>
-        <div>
-          title:
-          <input type="text" value={title} onChange={({target}) => setTitle(target.value)} id='title'/>
-        </div>
-        <div>
-          author:
-          <input type="text" value={author} onChange={({target}) => setAuthor(target.value)} id='author'/>
-        </div>
-        <div>
-          url:
-          <input type="text" value={url} onChange={({target}) => setUrl(target.value)} id='url'/>
-        </div>
-        <button type="submit" id='create-button'>create</button>
+        <Box pb={1} width={400}><TextField fullWidth label="title" value={title} onChange={({target}) => setTitle(target.value)} /></Box>
+        <Box pb={1} width={400}><TextField fullWidth label="author" value={author} onChange={({target}) => setAuthor(target.value)} /></Box>
+        <Box pb={1} width={400}><TextField fullWidth label="url" value={url} onChange={({target}) => setUrl(target.value)} /></Box>
+        <Button varient="contained" color="success" type="submit">create</Button>
       </form>
     </div>
   )

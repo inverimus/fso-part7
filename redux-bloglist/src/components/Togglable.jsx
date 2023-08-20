@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import { Button } from '@mui/material'
 
 const Togglable = (props) => {
   const hideWhenVisible = { display: props.visible ? 'none' : '' }
@@ -11,22 +11,16 @@ const Togglable = (props) => {
   return (
     <div>
       <div style={hideWhenVisible}>
-        <button onClick={toggleVisibility} id='create-form-show'>{props.buttonShowLabel}</button>
+      <Button varient="contained" color="primary" onClick={toggleVisibility}>{props.buttonShowLabel}</Button>
       </div>
       <div className='details' style={showWhenVisible}>
         <div>
           {props.children}
-          <button onClick={toggleVisibility}>{props.buttonHideLabel}</button>
+          <Button varient="contained" color="error" onClick={toggleVisibility}>{props.buttonHideLabel}</Button>
         </div>
       </div>
     </div>
   )
-}
-
-Togglable.propTypes = {
-  visible: PropTypes.bool.isRequired,
-  buttonShowLabel: PropTypes.string.isRequired,
-  buttonHideLabel: PropTypes.string.isRequired
 }
 
 export default Togglable
